@@ -64,7 +64,7 @@ public class Course {
 	}
 	
 	public String toString() {
-		String result = title + " (" + professor + " | " + creditPoints + " CP)";
+		String result = title + " (" + professor.name + " " + professor.surname + " | Degree " + professor.getDegree() +  " | " + creditPoints + " CP)";
 		return result;
 	}
 	
