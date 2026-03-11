@@ -64,5 +64,36 @@ public class MainService {
 		System.out.println(grade2);
 		*/
 	}
-
+	
+	
+	//CRUD - C CREATE, R RETRIEVE, U UPDATE, D DELETE
+	//C - create student
+	public void createstudent(String newName, String newSurname, String newPersonCode) throws Exception {
+		
+		//TODO parbaudiet ienakosos paramentrus
+		
+		for (Student tempS : allStudents) {
+			if(tempS.getPersonCode().equals(newPersonCode)){
+				throw new Exception("Tads students jau eksiste");
+			}
+		}
+		Student newStudent = new Student(newName, newSurname, newPersonCode);
+		allStudents.add(newStudent);
+		
+	}
+	
+	//R -retrieve by id
+	public static Student getStudentByID(long id) throws Exception{
+		if(id < 0) {
+			throw new Exception("id newvar b'ut negativs");
+		}
+		for (Student tempS : allStudents) {
+			if(tempS.getStudentID() == id) {
+				return tempS;
+			}
+		}
+		throw new Exception("Students ar id " + id + " nwwksiste");
+	}
+	
+	
 }
