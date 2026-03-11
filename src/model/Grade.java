@@ -26,7 +26,7 @@ public class Grade {
 		counter++;
 	}
 	public void setValue(int newValue) {
-		if(newValue <= 0 && newValue <= 10) {
+		if(newValue >= 0 && newValue <= 10) {
 			value = newValue;
 		} 
 		else {

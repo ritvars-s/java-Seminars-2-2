@@ -64,7 +64,7 @@ public class Course {
 	}
 	
 	public String toString() {
-		String result = title + "(" + professor + " | " + creditPoints + " credit points)";
+		String result = title + " (" + professor + " | " + creditPoints + " CP)";
 		return result;
 	}
 	

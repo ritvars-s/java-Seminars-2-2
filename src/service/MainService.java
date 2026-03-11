@@ -26,7 +26,7 @@ public class MainService {
 		
 		System.out.println("===============Course=============");
 		Course cour1 = new Course();
-		Course cour2 = new Course("JAVA", (byte)6, prof1);
+		Course cour2 = new Course("Java", (byte)6, prof1);
 		System.out.println(cour1);
 		System.out.println(cour2);
 		
