@@ -26,7 +26,7 @@ public class Course {
 		counter++;
 	}
 	public void setTitle(String newTitle) {
-		if ((newTitle != null) && (newTitle.matches("[A-Z]{1}[A-Za-z0-9 ]{3,40}"))){
+		if ((newTitle != null) && (newTitle.matches("[A-Z]{1}[A-Za-z0-9]{3,40}"))){
 			title = newTitle;
 		}
 		else {

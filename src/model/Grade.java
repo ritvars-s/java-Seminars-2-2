@@ -63,7 +63,7 @@ public class Grade {
 		setCourse(cour);
 	}
 	public String toString() {
-		String result = student.getName() + " " + student.getSurname() + " Grade: " + value + course.getTitle();
+		String result = student.getName() + " " + student.getSurname() + " Grade: " + value + " " + course.getTitle();
 		return result;
 	}
 	

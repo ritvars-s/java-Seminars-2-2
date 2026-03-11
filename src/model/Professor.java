@@ -1,10 +1,8 @@
 package model;
 import model.enums.ProfDegree;
 
-public class Professor {
+public class Professor extends Person {
 	private long professorID;
-	private String name;
-	private String surname;
 	private ProfDegree degree;
 	
 	private static long counter = 0;
@@ -13,12 +11,6 @@ public class Professor {
 	
 	public long getProfessorID() {
 		return professorID;
-	}
-	public String getName() {
-		return name;
-	}
-	public String getSurname() {
-		return surname;
 	}
 	public ProfDegree getDegree() {
 		return degree;
@@ -29,22 +21,6 @@ public class Professor {
 		professorID = counter;
 		counter++;
 	}
-	public void setName(String newName) {
-		if((newName != null) && (!newName.isEmpty()) && (newName.matches("[A-Z]{1}[a-z]{2,20}([ ]{1}[A-Z]{1}[a-z]{2,20})?"))) {
-			name = newName;
-		}
-		else {
-			name = "Unknown";
-		}
-	}
-	public void setSurname(String newSurname) {
-		if((newSurname != null) && (!newSurname.isEmpty()) && (newSurname.matches("[A-Z]{1}[a-z]{2,20}([-]{1}[A-Z]{1}[a-z]{2,20})?"))) {
-			surname = newSurname;
-		}
-		else {
-			surname = "Unknown";
-		}
-	}
 	public void setDegree(ProfDegree newDegree) {
 		if(newDegree != null){
 			degree = newDegree;
@@ -54,16 +30,14 @@ public class Professor {
 		}
 	}
 	public Professor() {
+		super();
 		setProfessorID();
-		setName("Miers");
-		setSurname("Kauls");
 		setDegree(ProfDegree.master);
 	}
 	
 	public Professor(String newName, String newSurname, ProfDegree newDegree) {
+		super(newName, newSurname);
 		setProfessorID();
-		setName(newName);
-		setSurname(newSurname);
 		setDegree(newDegree);
 	}
 	
