@@ -35,8 +35,11 @@ public class MainService {
 		*/
 		
 		Professor prof1 = new Professor();
-		Professor prof2 = new Professor("Vairis", "Cauna", ProfDegree.phd);
+		Professor prof2 = new Professor("Vairis", "Caune", ProfDegree.master);
 		Professor prof3 = new Professor("Galina", "HIlkevica", ProfDegree.phd);
+		allProfessors.add(prof1);
+		allProfessors.add(prof2);
+		allProfessors.add(prof3);
 		for(Professor tempP : allProfessors) {
 			System.out.println(tempP);
 		}
@@ -78,8 +81,14 @@ public class MainService {
 		catch(Exception e) {
 			System.out.println(e.getMessage());
 		}
-		
-		
+		System.out.println("==============Filter testing===========");
+		try {
+			System.out.println(specificDegreeProfessors(ProfDegree.master));
+			
+		}
+		catch(Exception e) {
+			System.out.println(e.getMessage());
+		}
 		
 		
 	}
@@ -133,5 +142,43 @@ public class MainService {
 		allStudents.remove(studentForDeleting);
 		
 	}
+	
+	//izfiltret un atgriezt visus profesorus,kuru degree ir master
+	public static  ArrayList<Professor> specificDegreeProfessors(ProfDegree deg) throws Exception{
+		if(deg == null) {
+			throw new Exception("Neeksistejos grads");
+		}
+		ArrayList<Professor> specificDegreeProfessors1 = new ArrayList<Professor>();
+		for (Professor tempS : allProfessors) {
+			if(tempS.getDegree() == deg) {
+				specificDegreeProfessors1.add(tempS);
+			}
+		}
+		if(specificDegreeProfessors1.isEmpty()) {
+			throw new Exception("Sistema nav profesori ar "+ deg + " gradu!");
+		}
+		return specificDegreeProfessors1;
+	}
+	/*
+	public static float calculateAVGGradeForStudent(String personCode) throws Exception{
+		if ( personCode.isEmpty()|| personCode == null || !personCode.matches("[1-9]{6}[-]{1}[1-9]{5}")) {
+			throw new Exception("Nepareis personas kods");
+		}
+		int count;
+		float sum;
+		for(Grade tempG : allGrades) {
+			if(tempG.getStudent().getPersonCode().equals(personCode)) {
+				sum+= tempG.getGrade();
+				count++;
+			}
+		}
+		if (count == 0) {
+			
+			throw new Exception("Tadam personas kodam nav saistita nevian atzime");
+		}
+		sum = sum / count;
+		return sum;
+	}
+	*/
 	
 }
