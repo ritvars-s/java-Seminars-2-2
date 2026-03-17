@@ -63,12 +63,31 @@ public class MainService {
 		System.out.println(grade1);
 		System.out.println(grade2);
 		*/
+		System.out.println("==============CRUD testing===========");
+		try {
+			createStudent("Janus","Berzzins","090512-23456");
+			System.out.println(allStudents);
+			System.out.println(getStudentByID(1));
+			
+			System.out.println(updateByID(2,"Baiba", "Jauka"));
+			System.out.println(allStudents);
+			
+			deleteByID(1);
+			System.out.println(allStudents);
+		}
+		catch(Exception e) {
+			System.out.println(e.getMessage());
+		}
+		
+		
+		
+		
 	}
 	
 	
 	//CRUD - C CREATE, R RETRIEVE, U UPDATE, D DELETE
 	//C - create student
-	public void createstudent(String newName, String newSurname, String newPersonCode) throws Exception {
+	public static void createStudent(String newName, String newSurname, String newPersonCode) throws Exception {
 		
 		//TODO parbaudiet ienakosos paramentrus
 		
@@ -94,7 +113,25 @@ public class MainService {
 		}
 		throw new Exception("Students ar id " + id + " neeksiste");
 	}
-	//U -
-	
+	//U - update
+	public static Student updateByID(int id, String newName, String newSurname) throws Exception{
+		Student studentForUpdating = getStudentByID(id);
+		
+		//TODO parbaudit newName un newSurname
+		if(!studentForUpdating.getName().equals(newName)) {
+			studentForUpdating.setName(newName);
+		}
+		if(!studentForUpdating.getSurname().equals(newSurname)) {
+			studentForUpdating.setSurname(newSurname);
+		}
+		
+		return studentForUpdating;
+	}
+	//D - delete
+	public static void deleteByID(int id) throws Exception{
+		Student studentForDeleting = getStudentByID(id);
+		allStudents.remove(studentForDeleting);
+		
+	}
 	
 }
