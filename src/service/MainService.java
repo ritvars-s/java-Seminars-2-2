@@ -85,15 +85,16 @@ public class MainService {
 	//R -retrieve by id
 	public static Student getStudentByID(long id) throws Exception{
 		if(id < 0) {
-			throw new Exception("id newvar b'ut negativs");
+			throw new Exception("id nevar but negativs");
 		}
 		for (Student tempS : allStudents) {
 			if(tempS.getStudentID() == id) {
 				return tempS;
 			}
 		}
-		throw new Exception("Students ar id " + id + " nwwksiste");
+		throw new Exception("Students ar id " + id + " neeksiste");
 	}
+	//U -
 	
 	
 }
